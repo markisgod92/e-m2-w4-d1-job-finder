@@ -127,17 +127,44 @@ const jobs = [
 
 // SVOLGIMENTO
 
+const inputTitle = document.getElementById("title");
+const inputLocation = document.getElementById("location");
+const submitBtn = document.getElementById("submit-btn");
+const resultScreen = document.getElementById("results");
+
 let result = [];
 
 function search (title, location) {
     jobs.forEach(job => {
-        if (job.title.toLowerCase().includes(title.toLowerCase()) && job.location.toLowerCase().includes(location.toLowerCase())) {
+        if (job.title.toLowerCase().includes(title.value.toLowerCase()) && job.location.toLowerCase().includes(location.value.toLowerCase())) {
             result.push(job)
         }
     });
 
 }
 
-search("dev", "US")
-console.log(result)
-console.log(result.length)
+function createElement () {
+    result.forEach(voice => {
+        const resultVoice = document.createElement("div");
+        resultVoice.classList.add("result")
+        resultVoice.style.backgroundColor = "lightgrey";
+        resultVoice.innerText = `${result.indexOf(voice) + 1}. ${voice.title} at ${voice.location}`
+        /* resultVoice.style.padding = "20px 0"; */
+        resultScreen.appendChild(resultVoice)
+    })
+}
+
+function resetResults () {
+    result.splice(0)
+    const resultVoice = document.querySelectorAll(".result");
+    resultVoice.forEach(element => {
+        resultScreen.removeChild(element);
+    })
+}
+
+submitBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    resetResults();
+    search(inputTitle, inputLocation);
+    createElement();
+})
