@@ -131,6 +131,7 @@ const inputTitle = document.getElementById("title");
 const inputLocation = document.getElementById("location");
 const submitBtn = document.getElementById("submit-btn");
 const resultScreen = document.getElementById("results");
+const count = document.getElementById("count");
 
 let result = [];
 
@@ -166,5 +167,6 @@ submitBtn.addEventListener("click", (event) => {
     event.preventDefault();
     resetResults();
     search(inputTitle, inputLocation);
+    count.innerText = result.length;
     createElement();
 })
