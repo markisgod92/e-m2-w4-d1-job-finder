@@ -4,32 +4,41 @@
     box-sizing: border-box;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 /* SEZIONI PRINCIPALI */
 body {
-    max-width: 800px;
+    max-width: 900px;
     height: 100vh;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    font-family: "Roboto", sans-serif;
 }
 
 header {
     display: flex;
-    align-items: center;
-    padding: 30px 100px;
-    background-color:rgba(0, 132, 255, 0.621)
+    justify-content: flex-start;
+    align-items: end;
+    padding: 0 50px 30px 50px;
+    background-color: #769FCD;
 }
 
 header > img {
-    width: 150px;
-    height: 150px;
+    width: 160px;
+    height: 160px;
     object-fit: cover;
+}
+
+header > h1 {
+    font-size: 60px;
 }
 
 main {
     height: 100%;
     display: flex;
     gap: 20px;
+    border: 1px solid black;
 }
 
 footer {
@@ -37,20 +46,27 @@ footer {
     display: flex;
     justify-content: center;
     padding: 30px 100px;
-    background-color:rgba(0, 132, 255, 0.621)
+    background-color: #769FCD;
+    font-weight: bold;
 }
 
 
 /* CORPO */
+#left-side {
+    padding-left: 20px;
+    flex: 2;
+}
 #right-side {
     border-left: 1px solid grey;
     padding-left: 20px;
+    padding-right: 20px;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    flex: 1;
 }
 
-#news-title > h3 {
+h3 {
     font-size: 30px;
     text-align: center;
     padding-top: 20px;
@@ -71,12 +87,16 @@ article > span {
 
 article > img {
     width: 300px;
+    height: 200px;
     object-fit: cover;
 }
 
 .search-bar {
     border-bottom: 1px solid black;
-    padding: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 form {
@@ -89,6 +109,8 @@ form {
 #count-bar {
     padding: 20px;
     color: grey;
+    display: flex;
+    justify-content: space-between;
 }
 
 #results {
@@ -103,7 +125,7 @@ form {
 }
 
 .result:hover {
-    background-color: lightblue;
+    background-color: #B9D7EA;
     cursor: pointer;
 }
 
@@ -119,7 +141,7 @@ form {
 
 #disclaimer {
     transform: translateY(-50%);
-    width: 400px;
+    width: 600px;
     height: 500px;
     margin: auto;
     border: 1px solid black;

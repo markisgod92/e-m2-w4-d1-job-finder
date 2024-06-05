@@ -222,7 +222,14 @@ const newsArray = [
   {image: "assets/pexels-vlada-karpovich-4050388.jpg", title: "Working From Home: The Secret of Multitasking, Netflix and Work Discovered"},
   {image: "assets/pexels-ron-lach-9849304.jpg", title: "Desk Clean-Up: Employee Finds Forgotten Projects from 2018"},
   {image: "assets/pexels-yankrukov-8199606.jpg", title: `Meeting Summary: "This Could Have Been an Email", Says Everyone`},
-  {image: "Assets/pexels-armin-rimoldi-5269633.jpg", title: `Optimistic Boss: "Working More Solves All Problems", Says from Bora Bora`}
+  {image: "Assets/pexels-armin-rimoldi-5269633.jpg", title: `Optimistic Boss: "Working More Solves All Problems", Says from Bora Bora`},
+  {image: "assets/pexels-yankrukov-7793663.jpg", title: "Employee of the Month Awarded for Mastering the Art of Looking Busy"},
+  {image: "assets/pexels-han-798356342-20453539.jpg", title: "Company Announces Unlimited Vacation Policy: No One Takes a Day Off"},
+  {image: "assets/pexels-fauxels-3183197.jpg", title: "New Office Policy: All Meetings to Start with 10-Minute Icebreakers"},
+  {image: "assets/pexels-marcus-aurelius-4064177.jpg", title: "Employee Celebrates 5 Years of Perfect Attendance by Showing Up Sick"},
+  {image: "assets/istockphoto-114405566-612x612.jpg", title: "Office Celebrates Increased Productivity: More Emails Sent Than Ever Before"},
+  {image: "assets/6113-07243119en_Masterfile.jpg", title: `Boss Declares "Open Door Policy": Employee Still Nervous to Knock`},
+  {image: "assets/istockphoto-1348346832-612x612.jpg", title: "Employee Promises to Be More Productive After Lunch: Forgets Immediately"}
 ];
 
 function randomNews() {
@@ -239,6 +246,7 @@ function randomNews() {
 
     //popola articolo
     articleImg.src = randomElement.image;
+    articleImg.alt = randomElement.title;
     articleTitle.innerText = randomElement.title;
 
     // aggiunta articolo alla pagina
