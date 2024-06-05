@@ -209,3 +209,43 @@ sendBtn.addEventListener("click", () => {
 closeDisclaimer.addEventListener("click", () => {
   disclaimer.classList.add("hidden");
 })
+
+
+// sezione NEWS
+const rightSide = document.getElementById("right-side");
+
+const newsArray = [
+  {image: "assets/pexels-olly-925786.jpg", title: "Perfect Employee Discovers that a 2-Hour Coffee Break Doesn't Improve Productivity"},
+  {image: "assets/1081623.jpg", title: "Boss Requests Team Building on Zoom: Enthusiasm Through the Roof"},
+  {image: "assets/pexels-divinetechygirl-1181396.jpg", title: "3-Hour Meeting Makes Office More Productive: Says No One"},
+  {image: "assets/pexels-rdne-7580798.jpg", title: "Surprise Promotion: The Only One Who Didn't Know is the Employee"},
+  {image: "assets/pexels-vlada-karpovich-4050388.jpg", title: "Working From Home: The Secret of Multitasking, Netflix and Work Discovered"},
+  {image: "assets/pexels-ron-lach-9849304.jpg", title: "Desk Clean-Up: Employee Finds Forgotten Projects from 2018"},
+  {image: "assets/pexels-yankrukov-8199606.jpg", title: `Meeting Summary: "This Could Have Been an Email", Says Everyone`},
+  {image: "Assets/pexels-armin-rimoldi-5269633.jpg", title: `Optimistic Boss: "Working More Solves All Problems", Says from Bora Bora`}
+];
+
+function randomNews() {
+  let newsArrayIstance = newsArray;
+
+  for (i = 0; i <= 2; i++) {
+    const article = document.createElement("article");
+    const articleImg = document.createElement("img");
+    const articleTitle = document.createElement("span");
+   
+    // randomizza articolo e rimuove dall'istance dell'array
+    let randomElement = newsArray[Math.floor(Math.random() * newsArray.length)];
+    newsArrayIstance.splice(newsArrayIstance.indexOf(randomElement), 1);
+
+    //popola articolo
+    articleImg.src = randomElement.image;
+    articleTitle.innerText = randomElement.title;
+
+    // aggiunta articolo alla pagina
+    article.appendChild(articleImg);
+    article.appendChild(articleTitle);
+    rightSide.appendChild(article);
+  }
+}
+
+randomNews();

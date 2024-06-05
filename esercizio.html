@@ -7,32 +7,43 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <!-- HEADER -->
     <header>
         <img src="https://png.pngtree.com/png-vector/20220830/ourmid/pngtree-business-man-greets-with-a-thumbs-up-png-image_6131631.png" alt="job finder logo">
         <h1>Job Finder</h1>
     </header>
 
     <main>
-
-        <div class="search-bar">
-            <form>
-                <input id="title" placeholder="Job title">
-                <input id="location" placeholder="Location">
-                <button id="submit-btn">Search</button>
-            </form>
+        <!-- Sezione SX: ricerca e risultati -->
+        <div id="left-side">
+            <div class="search-bar">
+                <form>
+                    <input id="title" placeholder="Job title">
+                    <input id="location" placeholder="Location">
+                    <button id="submit-btn">Search</button>
+                </form>
+            </div>
+    
+            <div id="count-bar">
+                <span>Risultati: <span id="count">0</span></span>
+            </div>
+    
+            <div id="results">
+    
+            </div>
         </div>
+        
+        <!-- Sezione DX: news-->
+        <div id="right-side">
+            <div id="news-title">
+                <h3>News</h3>
+            </div>
 
-        <div id="count-bar">
-            <span>Risultati: <span id="count"></span></span>
         </div>
-
-        <div id="results">
-            
-        </div>
-
+    
     </main>
 
+    <!-- POP UP al click sul risultato di ricerca -->
     <div id="disclaimer-container" class="hidden">
         <div id="disclaimer">
             <div id="close-disclaimer">X</div>
@@ -53,6 +64,11 @@
             <button id="apply">Apply</button>
         </div>
     </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <span>Job Finder© srl</span>
+    </footer>
 
     <script src="esercizio.js"></script>
 </body>
