@@ -6,6 +6,7 @@
 
 body {
     max-width: 800px;
+    height: 100vh;
     margin: 0 auto;
 }
 
@@ -44,4 +45,52 @@ form {
     flex-direction: column;
     gap: 20px;
     margin-top: 30px;
+}
+
+.result {
+    background-color: lightgrey;
+}
+
+.result:hover {
+    background-color: lightblue;
+    cursor: pointer;
+}
+
+#disclaimer-container {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+#disclaimer {
+    transform: translateY(-50%);
+    width: 400px;
+    height: 500px;
+    margin: auto;
+    border: 1px solid black;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    padding: 0 10px;
+}
+
+#close-disclaimer {
+    width: 90%;
+    text-align: right;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+#accept-alert {
+    color: red;
 }
