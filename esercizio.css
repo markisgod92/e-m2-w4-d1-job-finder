@@ -18,7 +18,7 @@ body {
 
 header {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: end;
     padding: 0 50px 30px 50px;
     background-color: #769FCD;
@@ -28,10 +28,25 @@ header > img {
     width: 160px;
     height: 160px;
     object-fit: cover;
+    transform: translateY(15px)
 }
 
-header > h1 {
+#page-title {
+    text-align: center;
+}
+
+#page-title h1 {
     font-size: 60px;
+}
+
+nav {
+    width: 160px;
+}
+
+nav > ul > li {
+    list-style: none;
+    text-align: end;
+    cursor: pointer;
 }
 
 main {
