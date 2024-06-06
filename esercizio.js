@@ -181,7 +181,7 @@ searchBtn.addEventListener("click", (event) => {
     })
 
     // aggiunta elemento alla pagina
-    resultScreen.appendChild(jobPost)
+    resultScreen.appendChild(jobPost);
   })
 })
 
