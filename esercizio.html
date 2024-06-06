@@ -1,89 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="esercizio.css">
     <title>Document</title>
 </head>
+
 <body>
-    <!-- HEADER -->
-    <header>
-        <img src="https://png.pngtree.com/png-vector/20220830/ourmid/pngtree-business-man-greets-with-a-thumbs-up-png-image_6131631.png" alt="job finder logo">
-        <div id="page-title">
-            <h1>Job Finder</h1>
-            <span>The most original name for a hiring platform!</span>
-        </div>
-        <nav>
-            <ul>
-                <li>Home</li>
-                <li>Your account</li>
-                <li>Complaint</li>
-                <li>Help</li>
-                <li>About</li>
-            </ul>
-        </nav>
-    </header>
+    <div id="main-container">
+        <!-- HEADER -->
+        <header>
+            <img src="Assets/pngtree-business-man-greets-with-a-thumbs-up-png-image_6131631.png" alt="job finder logo">
+            <div id="page-title">
+                <h1>Job Finder</h1>
+                <span>The most original name for a hiring platform</span>
+            </div>
+            <nav>
+                <ul>
+                    <li>Home</li>
+                    <li>Your account</li>
+                    <li>Complaint</li>
+                    <li>Help</li>
+                    <li>About</li>
+                </ul>
+            </nav>
+        </header>
 
-    <main>
-        <!-- Sezione SX: ricerca e risultati -->
-        <div id="left-side">
-            <div class="search-bar">
-                <h3>Search for job offers</h3>
-                <form>
-                    <input id="title" placeholder="Job title">
-                    <input id="location" placeholder="Location">
-                    <button id="submit-btn">Search</button>
-                </form>
-            </div>
-    
-            <div id="count-bar">
-                <p>Results: <span id="count">0</span></p>
-                <p>Click on a result to apply.</p>
-            </div>
-    
-            <div id="results">
-    
-            </div>
-        </div>
-        
-        <!-- Sezione DX: news-->
-        <div id="right-side">
-            <div id="news-title">
-                <h3>News</h3>
+        <main>
+            <!-- Sezione SX: ricerca e risultati -->
+            <div id="left-side">
+                <div class="search-bar">
+                    <h3>Search for job offers</h3>
+                    <form>
+                        <input id="title" placeholder="Job title">
+                        <input id="location" placeholder="Location">
+                        <button id="search-btn">Search</button>
+                    </form>
+                </div>
+
+                <div id="count-bar">
+                    <p>Results: <span id="count">0</span></p>
+                    <p>Click on a result to apply.</p>
+                </div>
+
+                <div id="results">
+
+                </div>
             </div>
 
-        </div>
-    
-    </main>
+            <!-- Sezione DX: news-->
+            <div id="right-side">
+                <div id="news-title">
+                    <h3>News</h3>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer>
+            <span>Job Finder© srl</span>
+        </footer>
+    </div>
 
     <!-- POP UP al click sul risultato di ricerca -->
     <div id="disclaimer-container" class="hidden">
         <div id="disclaimer">
             <div id="close-disclaimer">X</div>
             <h4>Terms of service</h4>
-            <p>By accepting the following terms of service you consent to send your personal information to the selected provider.<br>
-            Such information includes but is not limited to:<br>
-            - personal data<br>
-            - access to the bank account<br>
-            - names of family members<br>
-            By accepting, you also relieve Job Finder from any responsibility in case of unsatisfactory, 
-            illegally low or unpaid salary, mistreatment, threats from the employer, frustration, depression, anger.
+            <p>By accepting the following terms of service you consent to send your personal information to the
+                selected provider.<br>
+                Such information includes but is not limited to:<br>
+                - personal data<br>
+                - access to the bank account<br>
+                - names of family members<br>
+                By accepting, you also relieve Job Finder from any responsibility in case of unsatisfactory,
+                illegally low or unpaid salary, mistreatment, threats from the employer, frustration, depression,
+                anger.
             </p>
             <div>
                 <input type="checkbox" id="accept">
                 <label for="accept">I accept</label>
             </div>
-            <span id="accept-alert" class="hidden">Accept the terms to apply.</span>
+            <span id="accept-alert">Accept the terms to apply.</span>
             <button id="apply">Apply</button>
         </div>
     </div>
 
-    <!-- FOOTER -->
-    <footer>
-        <span>Job Finder© srl</span>
-    </footer>
 
     <script src="esercizio.js"></script>
 </body>
+
 </html>

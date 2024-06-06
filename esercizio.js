@@ -125,79 +125,73 @@ const jobs = [
 
 
 
-// SVOLGIMENTO
+// SVOLGIMENTO - ho aggiunto un pop up al click su un annuncio e una sezione news randomizzata
 
 const inputTitle = document.getElementById("title");
 const inputLocation = document.getElementById("location");
-const submitBtn = document.getElementById("submit-btn");
+const searchBtn = document.getElementById("search-btn");
 const resultScreen = document.getElementById("results");
 const count = document.getElementById("count");
+
 const disclaimer = document.getElementById("disclaimer-container");
 const acceptChkbox = document.getElementById("accept");
-const sendBtn = document.getElementById("apply");
+const applyBtn = document.getElementById("apply");
 const closeDisclaimer = document.getElementById("close-disclaimer");
 const acceptAlert = document.getElementById("accept-alert");
 
 let result = [];
 
-// ricerca risultati e aggiunta all'array 
-function search(title, location) {
+
+// funzioni al click su Search
+searchBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  // reset
+  result.splice(0)
+  let jobPost = document.querySelectorAll(".job-post");
+  jobPost.forEach(element => {
+    resultScreen.removeChild(element);
+  })
+
+  // ricerca risultati e aggiunta all'array
+  let titleValue = inputTitle.value.toLowerCase();
+  let locationValue = inputLocation.value.toLowerCase();
+
   jobs.forEach(job => {
-    if (job.title.toLowerCase().includes(title.value.toLowerCase()) && job.location.toLowerCase().includes(location.value.toLowerCase())) {
+    if (job.title.toLowerCase().includes(titleValue) && job.location.toLowerCase().includes(locationValue)) {
       result.push(job)
     }
   });
-}
 
+  // consegna 1 e aggiornamento contatore html
+  console.log(result, result.length);
+  count.innerText = result.length;
 
-function createElement() {
   // creazione elementi dei risultati
   result.forEach(voice => {
-    const resultVoice = document.createElement("div");
-    resultVoice.classList.add("result")
-    resultVoice.innerText = `${result.indexOf(voice) + 1}. ${voice.title} at ${voice.location}`
+    jobPost = document.createElement("div");
+    jobPost.classList.add("job-post")
+    jobPost.innerText = `${result.indexOf(voice) + 1}. ${voice.title} at ${voice.location}`
 
     // reset e apertura disclaimer al click su un risultato
-    resultVoice.addEventListener("click", () => {
+    jobPost.addEventListener("click", () => {
       acceptChkbox.checked = false;
       acceptAlert.classList.add("hidden");
       disclaimer.classList.remove("hidden")
     })
 
     // aggiunta elemento alla pagina
-    resultScreen.appendChild(resultVoice)
+    resultScreen.appendChild(jobPost)
   })
-
-  // consegna 1
-  console.log(result, result.length);
-}
-
-// funzione di reset dei risultati
-function resetResults() {
-  result.splice(0)
-  const resultVoice = document.querySelectorAll(".result");
-  resultVoice.forEach(element => {
-    resultScreen.removeChild(element);
-  })
-}
-
-// funzioni al click su Search
-submitBtn.addEventListener("click", (event) => {
-  event.preventDefault();
-  resetResults();
-  search(inputTitle, inputLocation);
-  count.innerText = result.length;
-  createElement();
 })
 
 // funzioni al click su Apply e reset della checkbox di accettazione
-sendBtn.addEventListener("click", () => {
+applyBtn.addEventListener("click", () => {
   if (acceptChkbox.checked) {
     alert("You applied successfully.")
   } else {
     acceptAlert.classList.remove("hidden");
     acceptChkbox.addEventListener("change", () => {
-      console.log("ciao")
       if (acceptChkbox.checked) {
         acceptAlert.classList.add("hidden")
       }
@@ -238,7 +232,7 @@ function randomNews() {
   for (i = 0; i <= 2; i++) {
     const article = document.createElement("article");
     const articleImg = document.createElement("img");
-    const articleTitle = document.createElement("span");
+    const articleTitle = document.createElement("h4");
    
     // randomizza articolo e rimuove dall'istance dell'array
     let randomElement = newsArray[Math.floor(Math.random() * newsArray.length)];
