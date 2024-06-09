@@ -125,7 +125,7 @@ const jobs = [
 
 
 
-// SVOLGIMENTO - ho aggiunto un pop up al click su un annuncio e una sezione news randomizzata
+// SVOLGIMENTO - ho aggiunto un popup al click su un annuncio e una sezione news randomizzata
 
 const inputTitle = document.getElementById("title");
 const inputLocation = document.getElementById("location");
@@ -142,50 +142,57 @@ const acceptAlert = document.getElementById("accept-alert");
 let result = [];
 
 
-// funzioni al click su Search
-searchBtn.addEventListener("click", (event) => {
-  event.preventDefault();
-
-  // reset
-  result.splice(0)
+// reset ricerca
+function resetResearch() {
+  result.splice(0);
   let jobPost = document.querySelectorAll(".job-post");
-  jobPost.forEach(element => {
-    resultScreen.removeChild(element);
-  })
+  jobPost.forEach(element => resultScreen.removeChild(element))
+}
 
-  // ricerca risultati e aggiunta all'array
+// ricerca
+function research() {
   let titleValue = inputTitle.value.toLowerCase();
   let locationValue = inputLocation.value.toLowerCase();
 
   jobs.forEach(job => {
-    if (job.title.toLowerCase().includes(titleValue) && job.location.toLowerCase().includes(locationValue)) {
+    if (job.title.toLowerCase().includes(titleValue) 
+      && job.location.toLowerCase().includes(locationValue)) {
       result.push(job)
     }
   });
+}
 
-  // consegna 1 e aggiornamento contatore html
-  console.log(result, result.length);
-  count.innerText = result.length;
-
-  // creazione elementi dei risultati
+// mostra risultati
+function showResult() {
   result.forEach(voice => {
     jobPost = document.createElement("div");
     jobPost.classList.add("job-post")
     jobPost.innerText = `${result.indexOf(voice) + 1}. ${voice.title} at ${voice.location}`
+    jobPost.addEventListener("click", openPopup)
 
-    // reset e apertura disclaimer al click su un risultato
-    jobPost.addEventListener("click", () => {
-      acceptChkbox.checked = false;
-      acceptAlert.classList.add("hidden");
-      disclaimer.classList.remove("hidden")
-    })
-
-    // aggiunta elemento alla pagina
     resultScreen.appendChild(jobPost);
   })
+}
+
+// reset e apertura Disclaimer
+function openPopup() {
+  acceptChkbox.checked = false;
+      acceptAlert.classList.add("hidden");
+      disclaimer.classList.remove("hidden")
+}
+
+// evento click su Search
+searchBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  resetResearch();
+  research();
+  console.log(result, result.length);
+  count.innerText = result.length;
+  showResult();
 })
 
-// funzioni al click su Apply e reset della checkbox di accettazione
+
+// eventi Disclaimer
 applyBtn.addEventListener("click", () => {
   if (acceptChkbox.checked) {
     alert("You applied successfully.")
@@ -199,10 +206,10 @@ applyBtn.addEventListener("click", () => {
   }
 })
 
-// chiusura Disclaimer
 closeDisclaimer.addEventListener("click", () => {
   disclaimer.classList.add("hidden");
 })
+
 
 
 // sezione NEWS
